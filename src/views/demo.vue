@@ -9,8 +9,8 @@
     <!-- 点击事件 -->
     <div class="demo-item">
       <h2>点击事件</h2>
-      <div class="demo-item-content" @click="handleNum()">
-        <button>{{ num }}</button>
+      <div class="demo-item-content">
+        <button @click="handleNum()">{{ num }}</button>
       </div>
     </div>
 
@@ -56,6 +56,19 @@
           :class="boxColor"
           @click="handleBox1()"
         ></div>
+        <ul class="demo-item-content-text">
+          <li>1. 创建box元素, 宽高各100px</li>
+          <li>2. 给box元素添加点击事件 @click="handleBox1()"</li>
+          <li>
+            3. 在 handleBox1 事件中使变量 colorNum (事先在 data 中定义) 累加
+          </li>
+          <li>4. 定义一个计算属性 boxColor 动态赋值给 class</li>
+          <li>
+            5. boxColor 中利用 colorNum % 3 来分出三种颜色对应的 class,
+            之后返回该 class
+          </li>
+          <li>6. 在 style 里面定义三种 class, 名称要与上一步对应</li>
+        </ul>
       </div>
     </div>
 
@@ -70,6 +83,19 @@
           }"
           @click="handleBox2()"
         ></div>
+        <ul class="demo-item-content-text">
+          <li>1. 创建box元素, 宽高各100px</li>
+          <li>2. 给box元素添加点击事件 @click="handleBox2()"</li>
+          <li>
+            3. 在 handleBox2 事件中定义一个三项的数组(每项都是0-255的随机整数),
+            并将该数组赋值给 randomColor (事先在 data 中定义)
+          </li>
+          <li>
+            4. 给box元素使用 style 绑定, 给 style 添加一个 background 属性,
+            对应属性值为 rgb(255, 255, 255)
+          </li>
+          <li>5. 把 randomColor 的每项依次赋值给 rgb</li>
+        </ul>
       </div>
     </div>
   </div>
@@ -187,6 +213,15 @@ export default {
         }
         &.blue {
           background: #00f;
+        }
+      }
+      .demo-item-content-text {
+        margin-top: 20px;
+        font-size: 14px;
+        color: #999;
+        li {
+          margin-top: 5px;
+          line-height: 1.5;
         }
       }
     }

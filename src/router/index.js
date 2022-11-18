@@ -19,5 +19,12 @@ export default new VueRouter({
       component: () =>
         import(/* webpackChunkName: "view-[request]" */ `@/views/demo.vue`),
     },
+    //demo练习
+    {
+      path: '/demo-lianxi', // 路由地址
+      name: 'demo-lianxi', // 路由名称
+      component: () =>
+        import(/* webpackChunkName: "view-[request]" */ `@/views/demo练习.vue`),
+    },
   ],
 })
