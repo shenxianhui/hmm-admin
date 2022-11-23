@@ -33,7 +33,18 @@
         ></div>
       </div>
     </div>
+    <div class="demo-item">
+      <h2>class 绑定扩展</h2>
+      <div class="demo-item-content">
+        <!-- 三种颜色切换 -->
+        <div
+          class="demo-item-content-box"
+          :class="boxColor"
+          @click="handleBox1()"
+        ></div>
   </div>
+</div>
+    </div>
 </template>
 
 <script>
@@ -71,6 +82,9 @@ export default {
     handleBox() {
       this.isActive = !this.isActive
     },
+    handleBox1(){
+
+    }
   },
 }
 </script>

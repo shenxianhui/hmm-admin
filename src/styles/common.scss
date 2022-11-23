@@ -2,7 +2,7 @@
  * @Author: shenxh
  * @Date: 2019-11-18 10:06:42
  * @LastEditors: shenxh
- * @LastEditTime: 2022-11-16 15:25:33
+ * @LastEditTime: 2022-11-23 22:26:16
  * @Description: 通用样式
  */
 
@@ -56,7 +56,7 @@ li {
 
 input {
   padding: 0; /* 解决 Safari 端内容遮盖问题 */
-  -webkit-appearance: none; /* 去除 Safari 输入框默认样式 */
+  // -webkit-appearance: none; /* 去除 Safari 输入框默认样式 */
   color: #333333;
   &::-webkit-input-placeholder {
     color: #c6c6c6;

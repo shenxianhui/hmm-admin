@@ -19,12 +19,26 @@ export default new VueRouter({
       component: () =>
         import(/* webpackChunkName: "view-[request]" */ `@/views/demo.vue`),
     },
-    //demo练习
+    // demo练习
     {
       path: '/demo-lianxi', // 路由地址
       name: 'demo-lianxi', // 路由名称
       component: () =>
         import(/* webpackChunkName: "view-[request]" */ `@/views/demo练习.vue`),
+    },
+    // hmm
+    {
+      path: '/hmm', // 路由地址
+      name: 'hmm', // 路由名称
+      component: () =>
+        import(/* webpackChunkName: "view-[request]" */ `@/views/hmm.vue`),
+    },
+    // 练习1
+    {
+      path: '/test1', // 路由地址
+      name: 'test1', // 路由名称
+      component: () =>
+        import(/* webpackChunkName: "view-[request]" */ `@/views/test1.vue`),
     },
   ],
 })
