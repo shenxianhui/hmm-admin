@@ -3,7 +3,7 @@
  * @Author: shenxh
  * @Date: 2022-11-24 21:27:03
  * @LastEditors: shenxh
- * @LastEditTime: 2022-11-24 22:35:43
+ * @LastEditTime: 2022-11-24 22:51:51
 -->
 
 <template>
@@ -14,6 +14,15 @@
 
     <br />
     <button @click="handleButton()">点这里{{ childrenNum }}</button>
+
+    <div class="children-box1">
+      <!-- 插槽 -->
+      <slot></slot>
+    </div>
+    <div class="children-box2">
+      <!-- 具名插槽 -->
+      <slot name="box"></slot>
+    </div>
   </div>
 </template>
 
@@ -66,4 +75,19 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.children {
+  .children-box1 {
+    width: 200px;
+    height: 100px;
+    margin-top: 10px;
+    border: 1px solid #000;
+  }
+  .children-box2 {
+    width: 200px;
+    height: 100px;
+    margin-top: 10px;
+    border: 1px solid #f00;
+  }
+}
+</style>

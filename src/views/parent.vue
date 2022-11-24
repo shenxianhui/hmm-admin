@@ -3,7 +3,7 @@
  * @Author: shenxh
  * @Date: 2022-11-24 21:23:56
  * @LastEditors: shenxh
- * @LastEditTime: 2022-11-24 22:39:29
+ * @LastEditTime: 2022-11-24 22:55:00
 -->
 
 <template>
@@ -18,7 +18,19 @@
       :family="family"
       test
       @handle-button="getChildrenData"
-    ></MyChildren>
+    >
+      <!-- 传入默认插槽的内容 -->
+      <div class="content">
+        这是默认区域
+      </div>
+      <!-- 传入具名插槽的内容, 用 "v-slot:插槽名" 来匹配 -->
+      <!-- 缩写: #box -->
+      <template v-slot:box>
+        <div class="content">
+          这是特定区域
+        </div>
+      </template>
+    </MyChildren>
     <br />
     这是接收子组件传过来的值: {{ num }}
   </div>
