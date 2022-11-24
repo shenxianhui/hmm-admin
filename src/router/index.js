@@ -40,5 +40,12 @@ export default new VueRouter({
       component: () =>
         import(/* webpackChunkName: "view-[request]" */ `@/views/test1.vue`),
     },
+    // 父组件
+    {
+      path: '/parent', // 路由地址
+      name: 'parent', // 路由名称
+      component: () =>
+        import(/* webpackChunkName: "view-[request]" */ `@/views/parent.vue`),
+    },
   ],
 })
