@@ -9,7 +9,7 @@ export default new VueRouter({
     // 默认
     {
       path: '/',
-      redirect: '/demo', // 重定向
+      redirect: '/login', // 重定向
     },
 
     // Demo
@@ -46,6 +46,24 @@ export default new VueRouter({
       name: 'parent', // 路由名称
       component: () =>
         import(/* webpackChunkName: "view-[request]" */ `@/views/parent.vue`),
+    },
+    // 登录页
+    {
+      path: '/login', // 路由地址
+      name: 'login', // 路由名称
+      component: () =>
+        import(
+          /* webpackChunkName: "view-[request]" */ `@/views/login/login.vue`
+        ),
+    },
+    // 首页
+    {
+      path: '/home', // 路由地址
+      name: 'home', // 路由名称
+      component: () =>
+        import(
+          /* webpackChunkName: "view-[request]" */ `@/views/home/home.vue`
+        ),
     },
   ],
 })
