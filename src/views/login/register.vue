@@ -1,13 +1,5 @@
-<!--
- * @Description: 登录页
- * @Author: shenxh
- * @Date: 2022-11-28 21:26:51
- * @LastEditors: shenxh
- * @LastEditTime: 2022-11-29 22:35:12
--->
-
 <template>
-  <div class="login">
+  <div class="register">
     <el-form ref="form" :model="form" :rules="rules" label-width="80px">
       <el-form-item label="用户名" prop="username">
         <el-input v-model="form.username" placeholder="请输入用户名"></el-input>
@@ -19,12 +11,27 @@
           placeholder="请输入密码"
         ></el-input>
       </el-form-item>
-      <el-button class="login-button" type="primary" @click="submitForm">
-        登录
-      </el-button>
-      <div class="other-button">
-        <el-button type="text" @click="handleRegister">注册</el-button>
-        <el-button type="text" @click="findPassword">找回密码</el-button>
+      <el-form-item label="确认密码" prop="password">
+        <el-input
+          v-model="form.confirmPwd"
+          show-password
+          placeholder="请再次输入密码"
+        ></el-input>
+      </el-form-item>
+      <el-form-item label="手机" prop="userTel">
+        <el-input v-model="form.userTel" placeholder="请输入手机号"></el-input>
+      </el-form-item>
+      <el-form-item label="邮箱" prop="userEmail">
+        <el-input
+          v-model="form.userEmail"
+          placeholder="请输入电子邮箱"
+        ></el-input>
+      </el-form-item>
+      <div class="button-group">
+        <el-button class="register-button" type="primary" @click="submitForm">
+          注册
+        </el-button>
+        <el-button @click="$router.back()">返回</el-button>
       </div>
     </el-form>
   </div>
@@ -32,15 +39,23 @@
 
 <script>
 export default {
-  name: 'login',
+  name: 'register',
   components: {},
   props: {},
   data() {
+    let validateUserTel = (rule, value, callback) => {
+      const reg = /^1[3456789]\d{9}$/
+      const res = reg.test(value)
+
+      if (res) {
+        callback()
+      } else {
+        callback(new Error('请输入正确的手机号码'))
+      }
+    }
+
     return {
-      form: {
-        // username: 'admin',
-        // password: '123456',
-      },
+      form: {},
       rules: {
         username: [
           { required: true, message: '请输入用户名', trigger: 'change' },
@@ -58,6 +73,18 @@ export default {
             max: 18,
             message: '长度在 6 到 18 个字符',
             trigger: 'change',
+          },
+        ],
+        userTel: [
+          { required: true, message: '请输入手机号码', trigger: 'change' },
+          { validator: validateUserTel, trigger: 'change' },
+        ],
+        userEmail: [
+          { required: true, message: '请输入邮箱', trigger: 'change' },
+          {
+            type: 'email',
+            message: '请输入正确的邮箱地址',
+            trigger: ['blur', 'change'],
           },
         ],
       },
@@ -82,27 +109,19 @@ export default {
         }
       })
     },
-    handleRegister() {
-      this.$router.push('/login/register')
-    },
-    findPassword() {
-      console.log('找回密码')
-    },
   },
 }
 </script>
 
 <style lang="scss" scoped>
-.login {
-  .other-button {
+.register {
+  margin-bottom: 20px;
+  .button-group {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    margin-top: 20px;
-  }
-  .login-button {
-    width: 100%;
-    margin-top: 10px;
+    justify-content: center;
+    .register-button {
+      margin-right: 20px;
+    }
   }
 }
 </style>
