@@ -71,6 +71,14 @@ export default new VueRouter({
               /* webpackChunkName: "view-[request]" */ '@/views/login/register.vue'
             ),
         },
+        {
+          path: 'find-password', // 路由地址
+          name: 'find-password', // 路由名称
+          component: () =>
+            import(
+              /* webpackChunkName: "view-[request]" */ '@/views/login/find-password.vue'
+            ),
+        },
       ],
     },
     // 首页

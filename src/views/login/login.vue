@@ -3,7 +3,7 @@
  * @Author: shenxh
  * @Date: 2022-11-28 21:26:51
  * @LastEditors: shenxh
- * @LastEditTime: 2022-11-29 22:35:12
+ * @LastEditTime: 2022-11-30 20:47:45
 -->
 
 <template>
@@ -86,7 +86,7 @@ export default {
       this.$router.push('/login/register')
     },
     findPassword() {
-      console.log('找回密码')
+      this.$router.push('/login/find-password')
     },
   },
 }

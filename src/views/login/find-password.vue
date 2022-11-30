@@ -1,10 +1,10 @@
 <template>
-  <div class="register">
+  <div class="find-password">
     <el-form ref="form" :model="form" :rules="rules" label-width="80px">
       <el-form-item label="用户名" prop="username">
         <el-input v-model="form.username" placeholder="请输入用户名"></el-input>
       </el-form-item>
-      <el-form-item label="密码" prop="password">
+      <el-form-item label="新密码" prop="password">
         <el-input
           v-model="form.password"
           show-password
@@ -15,21 +15,19 @@
         <el-input
           v-model="form.confirmPwd"
           show-password
-          placeholder="请再次输入密码"
+          placeholder="请再次输入新密码"
         ></el-input>
       </el-form-item>
       <el-form-item label="手机" prop="userTel">
         <el-input v-model="form.userTel" placeholder="请输入手机号"></el-input>
       </el-form-item>
-      <el-form-item label="邮箱" prop="userEmail">
-        <el-input
-          v-model="form.userEmail"
-          placeholder="请输入电子邮箱"
-        ></el-input>
-      </el-form-item>
       <div class="button-group">
-        <el-button class="register-button" type="primary" @click="submitForm">
-          注册
+        <el-button
+          class="findpassword-button"
+          type="primary"
+          @click="submitForm"
+        >
+          重置密码
         </el-button>
         <el-button @click="$router.back()">返回</el-button>
       </div>
@@ -39,7 +37,7 @@
 
 <script>
 export default {
-  name: 'register',
+  name: 'find-password',
   components: {},
   props: {},
   data() {
@@ -84,7 +82,7 @@ export default {
           },
         ],
         confirmPwd: [
-          { required: true, message: '请输入密码', trigger: 'change' },
+          { required: true, message: '请再次输入密码', trigger: 'change' },
           {
             min: 6,
             max: 18,
@@ -96,14 +94,6 @@ export default {
         userTel: [
           { required: true, message: '请输入手机号码', trigger: 'change' },
           { validator: validateUserTel, trigger: 'change' },
-        ],
-        userEmail: [
-          { required: true, message: '请输入邮箱', trigger: 'change' },
-          {
-            type: 'email',
-            message: '请输入正确的邮箱地址',
-            trigger: ['blur', 'change'],
-          },
         ],
       },
     }
@@ -133,14 +123,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.register {
+.find-password {
   margin-bottom: 20px;
-  .button-group {
-    display: flex;
-    justify-content: center;
-    .register-button {
-      margin-right: 20px;
-    }
-  }
 }
 </style>
