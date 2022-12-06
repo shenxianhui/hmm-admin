@@ -90,14 +90,23 @@ export default new VueRouter({
           /* webpackChunkName: "view-[request]" */ '@/views/home/home.vue'
         ),
     },
-    //注册页
-    // {
-    //   path: '/register', // 路由地址
-    //   name: 'register', // 路由名称
-    //   component: () =>
-    //     import(
-    //       /* webpackChunkName: "view-[request]" */ '@/views/login/register.vue'
-    //     ),
-    // },
+    // 首页
+    {
+      path: '/home', // 路由地址
+      name: 'home', // 路由名称
+      component: () =>
+        import(
+          /* webpackChunkName: "view-[request]" */ '@/views/home/home.vue'
+        ),
+    },
+    // 设备维护
+    {
+      path: '/plant-maintenance', // 路由地址
+      name: 'plant-maintenance', // 路由名称
+      component: () =>
+        import(
+          /* webpackChunkName: "view-[request]" */ '@/views/plant-maintenance/plant-maintenance.vue'
+        ),
+    },
   ],
 })
