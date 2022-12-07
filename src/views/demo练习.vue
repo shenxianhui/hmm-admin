@@ -42,9 +42,9 @@
           :class="boxColor"
           @click="handleBox1()"
         ></div>
-  </div>
-</div>
+      </div>
     </div>
+  </div>
 </template>
 
 <script>
@@ -82,9 +82,7 @@ export default {
     handleBox() {
       this.isActive = !this.isActive
     },
-    handleBox1(){
-
-    }
+    handleBox1() {},
   },
 }
 </script>

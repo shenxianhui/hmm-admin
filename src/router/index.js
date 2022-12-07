@@ -108,5 +108,14 @@ export default new VueRouter({
           /* webpackChunkName: "view-[request]" */ '@/views/plant-maintenance/plant-maintenance.vue'
         ),
     },
+    // 发票抬头
+    {
+      path: '/invoice-title', // 路由地址
+      name: 'invoice-title', // 路由名称
+      component: () =>
+        import(
+          /* webpackChunkName: "view-[request]" */ '@/views/invoice-title/invoice-title.vue'
+        ),
+    },
   ],
 })
