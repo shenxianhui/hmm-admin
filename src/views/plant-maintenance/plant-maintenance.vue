@@ -145,7 +145,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .plant-maintenance {
   .plant-maintenance-form {
     display: flex;

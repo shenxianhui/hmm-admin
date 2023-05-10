@@ -75,7 +75,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .children {
   .children-box1 {
     width: 200px;

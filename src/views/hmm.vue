@@ -150,7 +150,7 @@ export default {
   },
 }
 </script>
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .hmm {
   padding-left: 20px;
   .hmm-item {

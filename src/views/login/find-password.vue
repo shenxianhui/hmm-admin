@@ -122,7 +122,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .find-password {
   margin-bottom: 20px;
 }

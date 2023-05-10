@@ -132,7 +132,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .register {
   margin-bottom: 20px;
   .button-group {

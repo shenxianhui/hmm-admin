@@ -144,7 +144,7 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped>
+<style lang="less" scoped>
 .invoice-title {
   .invoice-title-form {
     display: flex;
