@@ -3,14 +3,31 @@
     <!-- 模板语法 -->
     <div class="demo-item">
       <h2>模板语法</h2>
-      <div class="demo-item-content">胡明明喜欢吃{{ foods }}食物</div>
+      <!-- 多个双括号拼接 -->
+      <div class="demo-item-content">
+        胡明明喜欢吃{{ foodType }}的{{ foods }}
+      </div>
+      <!-- 字符串拼接 -->
+      <div class="demo-item-content">
+        胡明明喜欢吃{{ foodType + '的' + foods }}
+      </div>
+      <!-- 模板字符串 -->
+      <div class="demo-item-content">
+        胡明明喜欢吃{{ `${foodType}的${foods}` }}
+      </div>
     </div>
 
     <!-- 点击事件 -->
     <div class="demo-item">
       <h2>点击事件</h2>
       <div class="demo-item-content">
-        <button @click="handleNum()">{{ num }}</button>
+        <button
+          @click="handleNum()"
+          @mouseleave="onMouseleave()"
+          @mouseenter="onMonseenter()"
+        >
+          {{ num }}
+        </button>
       </div>
     </div>
 
@@ -105,9 +122,11 @@
       <div class="demo-item-content">
         <div class="demo-item-content-box" @click="isShow = !isShow">
           <span v-if="isShow">v-if 显示隐藏示例</span>
+          <span v-else>haha</span>
         </div>
         <div class="demo-item-content-box" @click="isShow1 = !isShow1">
           <span v-show="isShow1">v-show 显示隐藏示例</span>
+          <span v-show="!isShow1">haha</span>
         </div>
         <ul class="demo-item-content-text">
           <li>相同点:</li>
@@ -115,7 +134,9 @@
           <li>不同点:</li>
           <li>
             <b>1. 编译方面：</b>
-            按控制手段和官方文献可知，v-if是惰性的，若最初指令值为false，它是不会编译的，直至指令值为true才开始局部编译存入缓存；v-show不管最初指令值为真假都会马上编译存入缓存，保留DOM
+            按控制手段和官方文献可知
+            v-if是惰性的，若最初指令值为false，它是不会编译的，直至指令值为true才开始局部编译存入缓存；
+            v-show不管最初指令值为真假都会马上编译存入缓存，保留DOM
           </li>
           <li>
             <b>2. 消耗方面：</b>
@@ -201,6 +222,7 @@ export default {
   // 当前组件的数据
   data() {
     return {
+      foodType: '香喷喷',
       foods: '粑粑',
       num: 0,
       num1: 15,
@@ -271,6 +293,13 @@ export default {
   methods: {
     handleNum() {
       this.num++
+    },
+    onMouseleave() {
+      this.num -= 2
+    },
+    onMonseenter() {
+      // this.num = this.num * 2
+      this.num *= 2
     },
     handleBox() {
       this.isActive = !this.isActive
